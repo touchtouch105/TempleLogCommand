@@ -1,4 +1,7 @@
 package com.templecollectionlog;
+import com.templecollectionlog.TempleCollectionLogConfig;
+import com.templecollectionlog.TempleOsrsClient;
+
 import com.google.common.annotations.VisibleForTesting;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -33,8 +36,6 @@ import net.runelite.client.plugins.PluginDependency;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.plugins.chatcommands.ChatCommandsPlugin;
 import net.runelite.client.plugins.chatcommands.ChatKeyboardListener;
-import net.runelite.client.plugins.templecollectionlog.TempleCollectionLogConfig;
-import net.runelite.client.plugins.templecollectionlog.TempleOsrsClient;
 import net.runelite.client.util.AsyncBufferedImage;
 import net.runelite.client.util.ImageUtil;
 import net.runelite.client.util.Text;
@@ -60,7 +61,7 @@ public class TempleCollectionLogPlugin extends Plugin
 	@Inject
 	private Client client;
 	@Inject
-	private net.runelite.client.plugins.templecollectionlog.TempleCollectionLogConfig config;
+	private TempleCollectionLogConfig config;
 	@Inject
 	private ItemManager itemManager;
 	@Inject
@@ -109,7 +110,7 @@ public class TempleCollectionLogPlugin extends Plugin
 	}
 
 	@Provides
-	net.runelite.client.plugins.templecollectionlog.TempleCollectionLogConfig provideConfig(ConfigManager configManager)
+	TempleCollectionLogConfig provideConfig(ConfigManager configManager)
 	{
 		return configManager.getConfig(TempleCollectionLogConfig.class);
 	}
